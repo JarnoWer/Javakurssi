@@ -1,0 +1,21 @@
+package Viikko2;
+
+import java.util.Scanner;
+
+public class RekisterinumeroTarkastin {
+	public static void main(String[] args) {
+		Scanner reader = new Scanner(System.in);
+		while (true) {
+			System.out.println("Syötä rekisterinumero (q-kirjain lopettaa): ");
+			String regLic = reader.nextLine();
+
+			if (regLic.matches("[qwertyuiopåäölkjhgfdsazxcvbnm]{2,3}")) {
+				System.out.println("oikein");
+			} else {
+				System.out.println("väärin");
+				break;
+			}
+		}
+		reader.close();
+	}
+}

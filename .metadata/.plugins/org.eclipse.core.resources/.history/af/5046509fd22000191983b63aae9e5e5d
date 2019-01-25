@@ -1,0 +1,17 @@
+package Viikko2;
+
+import java.util.Scanner;
+
+public class AlkuTulostin {
+	public static void main(String[] args) {
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Kirjoita sana: ");
+		String word = reader.nextLine();
+		int lenght = word.length();
+		
+		for (int count = 0; count == lenght; count++) {
+			System.out.println(word.substring(0, count));
+			}
+		reader.close();
+	}
+}
