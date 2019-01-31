@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="M:\eclipse_workspace\Javakurssi\src"/>
+		<item value="M:\eclipse_workspace\Javakurssi"/>
 		<item value="G:\Koulu OneDrive\OneDrive - Haaga-Helia Oy Ab\Tietojenkäsittely\Javakurssi\src\Javakurssi"/>
 		<item value="G:\Koulu OneDrive\OneDrive - Haaga-Helia Oy Ab\Tietojenkäsittely\Javakurssi\src"/>
 		<item value="G:\Koulu OneDrive\OneDrive - Haaga-Helia Oy Ab\Tietojenkäsittely\Javakurssi"/>
