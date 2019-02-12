@@ -9,7 +9,7 @@ public class IndexOutOfBounds {
 
 		sanalista.add("Ensimmäinen");
 		sanalista.add("Toinen");
-
+		
 		int kokonaispituus = 0;
 
 		for (int i = 0; i < sanalista.size(); i++) {
