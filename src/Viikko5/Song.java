@@ -16,10 +16,12 @@ public class Song {
 	}
 
 	public String getArtist() {
-		return artist.getName();
+		String artturi = artist.getName();
+		return artturi;
 	}
 
 	public void setArtist(String singer) {
+		
 		artist.setName(singer);
 	}
 
