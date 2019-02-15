@@ -19,6 +19,7 @@ public class Song {
 	}
 
 	public String getArtist() {
+<<<<<<< HEAD
 		if (songArtist == null) {
 			return null;
 		}
@@ -29,6 +30,15 @@ public class Song {
 		songArtist = artist2;
 		String name = songArtist.getName();
 		songArtist.setName(name);
+=======
+		String artturi = artist.getName();
+		return artturi;
+	}
+
+	public void setArtist(String singer) {
+		
+		artist.setName(singer);
+>>>>>>> 1c7c831506947840b52e321412cd79a50ab62754
 	}
 
 	public int getYear() {
