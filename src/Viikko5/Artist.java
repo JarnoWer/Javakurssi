@@ -11,6 +11,9 @@ public class Artist {
 
     public String getName() {
         // Kirjoita tämän metodin toteutus
+    	if (this.name == null) {
+    		return null;
+    	}
     	return this.name;
     }
 

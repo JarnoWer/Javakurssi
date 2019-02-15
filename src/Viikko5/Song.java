@@ -3,11 +3,14 @@ package Viikko5;
 public class Song {
 
 	private String title;
-	private Artist artist;
+	private Artist songArtist;
 	private int year;
 	private int length;
 
 	public String getTitle() {
+		if (this.title == null) {
+			return null;
+		}
 		return this.title;
 	}
 
@@ -16,11 +19,16 @@ public class Song {
 	}
 
 	public String getArtist() {
-		return artist.getName();
+		if (songArtist == null) {
+			return null;
+		}
+		return songArtist.getName();
 	}
 
-	public void setArtist(String singer) {
-		artist.setName(singer);
+	public void setArtist(Artist artist2) {
+		songArtist = artist2;
+		String name = songArtist.getName();
+		songArtist.setName(name);
 	}
 
 	public int getYear() {
@@ -41,8 +49,8 @@ public class Song {
 
 	@Override
 	public String toString() {
-		if (this.artist != null) {
-			return this.title + " by " + artist.getName();
+		if (this.songArtist != null) {
+			return this.title + " by " + songArtist.getName();
 		} else {
 			return this.title;
 		}
