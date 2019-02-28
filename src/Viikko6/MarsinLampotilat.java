@@ -6,7 +6,37 @@ public class MarsinLampotilat {
 	public static void main(String[] args) {
 		int[] results = putInTable();
 		System.out.println("Mittausten keskiarvo:" + returnAvarage(results));
+		System.out.println("Pienin mittaustulos: " + getSmallest(results));
+		System.out.println("Suurin mittaustulos: " + getBig(results));
 		
+	}
+
+	private static int getBig(int[] results) {
+		int biggest = results[0];
+
+		int number = 0;
+		while (number < results.length) {
+			int nowInt = results[number];
+			if (biggest < nowInt) {
+				biggest = nowInt;
+			}
+			number++;
+		}
+		return biggest;
+	}
+
+	private static int getSmallest(int[] results) {
+		int smallest = results[0];
+
+		int number = 0;
+		while (number < results.length) {
+			int nowInt = results[number];
+			if (smallest > nowInt) {
+				smallest = nowInt;
+			}
+			number++;
+		}
+		return smallest;
 	}
 
 	private static double returnAvarage(int[] results) {
