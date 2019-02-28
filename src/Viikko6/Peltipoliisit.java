@@ -5,16 +5,15 @@ import java.util.Scanner;
 public class Peltipoliisit {
 	public static void main(String[] args) {
 		Scanner reader = new Scanner(System.in);
-		String[] highSpeeds = new String[1];
+		String highSpeeds = "";
 		while (true) {
-			int howMany = 0;
 			System.out.print("Anna seuraava komento: ");
 			String command = reader.nextLine();
 			String[] feed = command.split(";");
 			if (feed[0].equals("lopeta")) {
 				break;
 			} else {
-				highSpeeds[howMany] = command;
+				highSpeeds = highSpeeds + command + ";";
 			}
 		}
 		System.out.println(highSpeeds);
