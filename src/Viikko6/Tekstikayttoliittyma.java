@@ -6,19 +6,20 @@ public class Tekstikayttoliittyma {
 	public static void main(String[] args) {
 		Sanakirja sanakirja = new Sanakirja();
 		Scanner reader = new Scanner(System.in);
-		
-		System.out.print("Komennot:\n  lisaa - lisää sanaparin sanakirjaan\n  kaanna - kysyy sanan ja tulostaa sen käännöksen\n  lopeta - poistuu käyttöliittymästä");
+
+		System.out.print(
+				"Komennot:\n  lisaa - lisää sanaparin sanakirjaan\n  kaanna - kysyy sanan ja tulostaa sen käännöksen\n  lopeta - poistuu käyttöliittymästä");
 		System.out.println();
-		
+
 		boolean stop = false;
 		while (true) {
 			System.out.print("Komento:");
 			String command = reader.nextLine();
-			switch(command) {
+			switch (command) {
 			case "lisaa":
-				System.out.print("Anna sana: ");
+				System.out.print("Suomeksi: ");
 				String word = reader.nextLine();
-				System.out.println("Anna käännös: ");
+				System.out.print("Anna käännös: ");
 				String translate = reader.nextLine();
 				sanakirja.lisaa(word, translate);
 				break;
