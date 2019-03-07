@@ -22,7 +22,7 @@ public class ArvonTarkastus {
 		if (number > 0 && number < 23) {
 			System.out.println("Luku " + number + " on sallittu.");
 		} else {
-			throw new IllegalArgumentException(Throwable clause);
+			throw new IllegalArgumentException("Exception in thread \"main\" java.lang.IllegalArgumentException");
 		}
 
 	}
