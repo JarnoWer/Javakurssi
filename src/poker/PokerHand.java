@@ -15,7 +15,7 @@ public class PokerHand {
 
     // The cards that belong to this hand
     private List<Card> cards = new ArrayList<>();
-
+    private TreeSet<Integer> sameSet = new TreeSet<Integer>();
     /**
      * The ... syntax is called varargs and it provides an easy way to implement a
      * method or constructor that accepts any number of arguments of the same type.
@@ -48,32 +48,11 @@ public class PokerHand {
 
     /**
      * Three cards of the same rank?
+     * @return 
      */
-    
-    public List<Integer> rankList() {
-    	List<Integer> rankList = new ArrayList<Integer>();
-    	for (Card c : cards) {
-    		rankList.add(c.getRank());
-    	}
-    	return rankList;
-	}
 
 	public boolean isThreeOfAKind() {
-		int counter = 0;
-		int counter2 = 0;
-		while (counter2 < 2) {
-			for (int i = 0; i < rankList().size(); i++) {
-				if (rankList().get(counter2) == rankList().get(i)) {
-					counter++;
-				}
-				
-				
-
-			}
-			counter2++;
-			counter = counter - 1;
-		}
-		return (counter == 6);
+		return this.sameSet.size() == 1;
 	}
 
     /**
@@ -81,15 +60,15 @@ public class PokerHand {
      */
     public boolean isTwoPairs() {
         // TODO: complete this method
-        return false;
+    	return this.sameSet.size() ==2 && rankSet().size() == 3;
     }
 
     /**
      * Four cards of the same rank?
      */
     public boolean isFourOfAKind() {
-        // TODO: complete this method
-        return false;
+        
+    	return rankSet().size() ==2 && sameSet.size() == 1;
     }
 
     /**
@@ -98,19 +77,25 @@ public class PokerHand {
     public boolean isFullHouse() {
         // TODO: complete this method. Hint: could you call the pair and three-of-a-kind
         // methods here?
-        return false;
+    	return rankSet().size() ==2 && sameSet.size() == 2;
     }
 
     /**
      * Five cards in a sequence? Note that an ace can be either 1 or 14!
+     * @param c 
      */
+   
     
     public TreeSet<Integer> rankSet() {
-        TreeSet<Integer> suora = new TreeSet<Integer>();
+        TreeSet<Integer> rankSet = new TreeSet<Integer>();
         for (Card c : cards) {
-        	suora.add(c.getRank());
-        }
-        return suora;
+        	int org = rankSet.size();
+        	rankSet.add(c.getRank());
+        	if (org == rankSet.size()) {
+            	this.sameSet.add(c.getRank());
+            }
+        } 
+        return rankSet;
     }
     
     public boolean isStraight() {
