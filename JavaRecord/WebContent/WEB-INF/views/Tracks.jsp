@@ -5,19 +5,17 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Albums by artist</title>
+<title>Tracks by album</title>
 </head>
 <body>
 	<h1>
-		List of albums by
-		<c:out value="${ artist.getName() }" />
+		List of tracks by
+		<c:out value="${ album.getTitle() }" />
 	</h1>
-	<p>You can click an album name to see tracks</p>
 	<ul>
+		<c:forEach var="track" items="${ tracks }">
+			<li><a><c:out value="${ track.getName() }" /></a></li>
 
-		<c:forEach var="album" items="${ albums }">
-			<li><a href="Tracks?id=${ album.getId() }"><c:out
-						value="${ album.getTitle() }" /></a></li>
 		</c:forEach>
 	</ul>
 </body>

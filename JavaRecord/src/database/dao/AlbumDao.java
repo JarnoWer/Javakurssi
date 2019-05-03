@@ -41,4 +41,56 @@ public class AlbumDao {
 
         return albums;
     }
+    public List<Album> findAlbumsByTitle(String keyword) {
+        Connection conn = db.connect();
+        PreparedStatement statement = null;
+        ResultSet results = null;
+
+        List<Album> albums = new ArrayList<>();
+
+        try {
+            statement = conn.prepareStatement("SELECT * FROM Album WHERE Title LIKE ?");
+            statement.setString(1, "%" + keyword + "%");
+
+            results = statement.executeQuery();
+
+            while (results.next()) {
+                long id = results.getLong("AlbumId");
+                String title = results.getString("Title");
+
+                albums.add(new Album(id, title));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            db.close(results, statement, conn);
+        }
+
+        return albums;
+    }
+	public Album getAlbum(long id) {
+			Connection conn = db.connect();
+			PreparedStatement statement = null;
+			ResultSet results = null;
+
+			try {
+				statement = conn.prepareStatement("SELECT * FROM Album WHERE AlbumId = ?");
+				statement.setLong(1, id);
+				results = statement.executeQuery();
+
+				if (results.next()) {
+					String title = results.getString("Title");
+					long AlbumId = results.getLong("AlbumId");
+
+					return new Album(AlbumId, title);
+				} else {
+					return null;
+				}
+
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			} finally {
+				db.close(results, statement, conn);
+			}
+		}
 }

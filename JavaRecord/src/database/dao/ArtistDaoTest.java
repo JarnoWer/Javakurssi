@@ -13,15 +13,15 @@ public class ArtistDaoTest {
     @Test
     public void artistWithId50IsMetallica() {
         ArtistDao dao = new ArtistDao();
-        Artist artist = dao.getArtist(50);
+        Artist artist = dao.getArtist(93);
 
-        assertEquals("Metallica", artist.getName());
+        assertEquals("JET", artist.getName());
     }
 
     @Test
     public void getArtistWithUnknownIdReturnsNull() {
         ArtistDao dao = new ArtistDao();
-        Artist artist = dao.getArtist(-100);
+        Artist artist = dao.getArtist(-5);
 
         assertEquals(null, artist);
     }
