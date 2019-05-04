@@ -28,4 +28,19 @@ public class AlbumDaoTest {
 
         assertTrue(albums.isEmpty());
     }
+    @Test
+    public void albumWithId140IsMDM() {
+        AlbumDao dao = new AlbumDao();
+        Album album = dao.getAlbum(140);
+
+        assertEquals("Mais Do Mesmo", album.getTitle());
+    }
+
+    @Test
+    public void getArtistWithUnknownIdReturnsNull() {
+    	AlbumDao dao = new AlbumDao();
+        Album album = dao.getAlbum(-140);
+
+        assertEquals(null, album);
+    }
 }

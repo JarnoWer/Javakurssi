@@ -97,4 +97,50 @@ public class ArtistDao {
 
         return artists;
     }
+
+	public void storeArtist(String artistName) {
+		Connection conn = db.connect();
+		PreparedStatement statement = null;
+		ResultSet results = null;
+		if (getArtistId(artistName) == null) {
+			try {
+				statement = conn.prepareStatement("INSERT INTO Artist (Name) VALUES (?)");
+				statement.setString(1, artistName);
+				statement.executeUpdate();
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			} finally {
+				db.close(results, statement, conn);
+			}
+		} 
+
+		
+		
+	}
+
+	public Artist getArtistId(String artistName) {
+		Connection conn = db.connect();
+		PreparedStatement statement = null;
+		ResultSet results = null;
+
+		try {
+			statement = conn.prepareStatement("SELECT * FROM Artist WHERE Name = ?");
+			statement.setString(1, artistName);
+			results = statement.executeQuery();
+
+			if (results.next()) {
+				String name = results.getString("Name");
+				long artistId = results.getLong("ArtistId");
+
+				return new Artist(artistId, name);
+			} else {
+				return null;
+			}
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			db.close(results, statement, conn);
+		}
+	}
 }
