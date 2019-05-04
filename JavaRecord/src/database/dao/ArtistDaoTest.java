@@ -1,6 +1,7 @@
 package database.dao;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -34,4 +35,24 @@ public class ArtistDaoTest {
         assertEquals("A Cor Do Som", allArtists.get(0).getName());
         assertEquals("Zeca Pagodinho", allArtists.get(allArtists.size() - 1).getName());
     }
+    
+    @Test
+    public void testSearchingByKeyword() {
+        ArtistDao dao = new ArtistDao();
+
+        List<Artist> artists = dao.findArtistsByName("Meta");
+
+        assertEquals("Metallica", artists.get(0).getName());
+    }
+
+    @Test
+    public void testSearchingWithUnexistingKeyword() {
+        ArtistDao dao = new ArtistDao();
+
+        List<Artist> artists = dao.findArtistsByName("Ä123");
+
+        assertTrue(artists.isEmpty());
+    }
 }
+
+

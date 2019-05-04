@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import database.ChinookDatabase;
+
 import model.Artist;
 
 public class ArtistDao {
@@ -69,4 +70,31 @@ public class ArtistDao {
 
 		return artists;
 	}
+	public List<Artist> findArtistsByName(String keyword) {
+        Connection conn = db.connect();
+        PreparedStatement statement = null;
+        ResultSet results = null;
+
+        List<Artist> artists = new ArrayList<>();
+
+        try {
+            statement = conn.prepareStatement("SELECT * FROM Artist WHERE Name LIKE ?");
+            statement.setString(1, "%" + keyword + "%");
+
+            results = statement.executeQuery();
+
+            while (results.next()) {
+                long id = results.getLong("ArtistId");
+                String name = results.getString("Name");
+
+                artists.add(new Artist(id, name));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            db.close(results, statement, conn);
+        }
+
+        return artists;
+    }
 }

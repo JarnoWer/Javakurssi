@@ -15,9 +15,9 @@ public class AlbumDaoTest {
     public void testSearchingByKeyword() {
         AlbumDao dao = new AlbumDao();
 
-        List<Album> albums = dao.findAlbumsByTitle("pill");
+        List<Album> albums = dao.findAlbumsByTitle("wild");
 
-        assertEquals("Jagged Little Pill", albums.get(0).getTitle());
+        assertEquals("Restless and Wild", albums.get(0).getTitle());
     }
 
     @Test
