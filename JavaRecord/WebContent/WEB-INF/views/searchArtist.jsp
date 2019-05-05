@@ -11,7 +11,9 @@
 <h1>Results</h1>
 	<ul>
 		<c:forEach var="artist" items="${ artists }">
-			<li><c:out value="${ artist.getName() }" /></li>
+			<li><a href="Albums?id=${ artist.getId() }"> <c:out
+						value="${ artist.getName() }" />
+			</a></li>
 		</c:forEach>
 	</ul>
 	<form method="get" action="searchArtist">

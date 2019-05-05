@@ -93,4 +93,23 @@ public class AlbumDao {
 				db.close(results, statement, conn);
 			}
 		}
+	public void storeAlbum(String albumName, long id) {
+		Connection conn = db.connect();
+		PreparedStatement statement = null;
+		ResultSet results = null;
+		
+		
+			try {
+				statement = conn.prepareStatement("INSERT INTO Album (Title, ArtistId) VALUES (?,?)");
+				statement.setString(1, albumName);
+				statement.setLong(2, id);
+				statement.executeUpdate();
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			} finally {
+				db.close(results, statement, conn);
+			}
+		
+		
+	}
 }

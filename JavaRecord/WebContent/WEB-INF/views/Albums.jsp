@@ -20,5 +20,12 @@
 						value="${ album.getTitle() }" /></a></li>
 		</c:forEach>
 	</ul>
+	<p>
+		<a href="newAlbum?id=${ artist.getId() }">Add new album to <c:out value="${ artist.getName() }" /></a>
+	</p>
+	<br>
+	<p>
+		<a href="">Back to start</a>
+	</p>
 </body>
 </html>

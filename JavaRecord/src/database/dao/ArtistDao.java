@@ -70,33 +70,34 @@ public class ArtistDao {
 
 		return artists;
 	}
+
 	public List<Artist> findArtistsByName(String keyword) {
-        Connection conn = db.connect();
-        PreparedStatement statement = null;
-        ResultSet results = null;
+		Connection conn = db.connect();
+		PreparedStatement statement = null;
+		ResultSet results = null;
 
-        List<Artist> artists = new ArrayList<>();
+		List<Artist> artists = new ArrayList<>();
 
-        try {
-            statement = conn.prepareStatement("SELECT * FROM Artist WHERE Name LIKE ?");
-            statement.setString(1, "%" + keyword + "%");
+		try {
+			statement = conn.prepareStatement("SELECT * FROM Artist WHERE Name LIKE ?");
+			statement.setString(1, "%" + keyword + "%");
 
-            results = statement.executeQuery();
+			results = statement.executeQuery();
 
-            while (results.next()) {
-                long id = results.getLong("ArtistId");
-                String name = results.getString("Name");
+			while (results.next()) {
+				long id = results.getLong("ArtistId");
+				String name = results.getString("Name");
 
-                artists.add(new Artist(id, name));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            db.close(results, statement, conn);
-        }
+				artists.add(new Artist(id, name));
+			}
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			db.close(results, statement, conn);
+		}
 
-        return artists;
-    }
+		return artists;
+	}
 
 	public void storeArtist(String artistName) {
 		Connection conn = db.connect();
@@ -112,10 +113,8 @@ public class ArtistDao {
 			} finally {
 				db.close(results, statement, conn);
 			}
-		} 
+		}
 
-		
-		
 	}
 
 	public Artist getArtistId(String artistName) {
