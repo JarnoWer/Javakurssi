@@ -1,0 +1,7 @@
+a19a0f0 (HEAD -> master, origin/master, origin/HEAD) Added possibility to add and remove data artists
+39eab9f Adding albums & better navigation
+700a02a Adding new artist works
+6507ecd Artist and Album search works
+64af0a8 Listing album tracks works
+319c9c2 now works homepage, artists list, album list,
+678aa81 Teacher examples
