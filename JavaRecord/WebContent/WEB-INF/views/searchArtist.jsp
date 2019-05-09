@@ -8,7 +8,7 @@
 <title>Artist search results</title>
 </head>
 <body>
-<h1>Results</h1>
+	<h1>Results</h1>
 	<ul>
 		<c:forEach var="artist" items="${ artists }">
 			<li><a href="Albums?id=${ artist.getId() }"> <c:out
@@ -17,9 +17,11 @@
 		</c:forEach>
 	</ul>
 	<form method="get" action="searchArtist">
-        <input type="text" name="keyword" />
-        <input type="submit" value="Search by Artist" />
-    </form>
-    <p><a href="">Back to start</a></p> 
+		<input type="text" name="keyword" /> <input type="submit"
+			value="Search by Artist" />
+	</form>
+	<p>
+		<a href="">Back to start</a>
+	</p>
 </body>
 </html>

@@ -5,12 +5,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Add new album to</title>
+<title>Add new track to</title>
 </head>
 <body>
 	<h1>
-		Add new album to
-		<c:out value="${ artist.getName() }" />
+		Add new track to
+		<c:out value="${ album.getTitle() }" />
 	</h1>
 
 	<c:if test="${ error != null }">

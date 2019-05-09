@@ -4,10 +4,12 @@ public class Track {
 
     private long id;
     private String name;
+    private long AlbumId;
 
-    public Track(long id, String name) {
+    public Track(long id, String name, long aId) {
         this.id = id;
         this.name = name;
+        this.AlbumId = aId;
     }
 
     public long getId() {
@@ -16,5 +18,8 @@ public class Track {
 
     public String getName() {
         return this.name;
+    }
+    public long AlbumId() {
+    	return this.AlbumId;
     }
 }
